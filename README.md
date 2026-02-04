@@ -46,19 +46,34 @@ port-scanner --host example.com --top-ports 100 --output json
 Validate SSL/TLS certificates and identify potential issues.
 
 **Features:**
-- Certificate expiration warnings
-- Chain validation
-- Cipher suite analysis
-- Multiple domains support
-- Export reports
+- Certificate expiration warnings with configurable thresholds
+- Chain validation and trust verification
+- Subject Alternative Names (SANs) extraction
+- Self-signed certificate detection
+- Multiple domains support (batch checking)
+- Detailed certificate information (issuer, serial, signature algorithm)
+- Multiple output formats (table, detailed, JSON)
+- File input support (check from list)
 
 **Usage:**
 ```bash
+# Check single domain
 ssl-checker --host example.com
-ssl-checker --hosts-file domains.txt --warn-days 30
+
+# Check multiple domains
+ssl-checker --host google.com --host github.com
+
+# Check from file
+ssl-checker --file domains.txt --warn-days 30
+
+# Detailed output
+ssl-checker --host example.com --output detailed
+
+# JSON output
+ssl-checker --host example.com --output json
 ```
 
-**Status:** 📋 Planned
+**Status:** 🚧 Complete (MVP)
 
 ---
 
@@ -219,13 +234,12 @@ Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for de
 ## 📊 Project Roadmap
 
 - [x] Project setup and structure
-- [ ] Port Scanner MVP (Phase 1)
-- [ ] SSL Checker MVP (Phase 1)
+- [x] Port Scanner MVP (Phase 1) ✅
+- [x] SSL Checker MVP (Phase 1) ✅
 - [ ] DNS Enumerator MVP (Phase 2)
 - [ ] IP Geolocation MVP (Phase 2)
 - [ ] Firewall Manager MVP (Phase 2)
 - [ ] Integration testing suite
-- [ ] CI/CD pipeline
 - [ ] Published pip package
 - [ ] Web dashboard (Phase 3)
 
