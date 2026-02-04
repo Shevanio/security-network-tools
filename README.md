@@ -135,7 +135,7 @@ firewall-mgr list --active
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/security-network-tools.git
+git clone https://github.com/Shevanio/security-network-tools.git
 cd security-network-tools
 
 # Create virtual environment
