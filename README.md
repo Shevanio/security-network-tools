@@ -37,6 +37,7 @@ port-scanner --host example.com --ports 1-1000
 port-scanner --host 192.168.1.1 --ports 80,443,8080 --timeout 2
 port-scanner --host example.com --top-ports 100 --output json
 ```
+<img width="783" height="298" alt="image" src="https://github.com/user-attachments/assets/2bceba5b-1b86-4e15-91bd-e8630301377d" />
 
 **Status:** 🚧 In Development (MVP)
 
