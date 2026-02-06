@@ -39,7 +39,7 @@ port-scanner --host example.com --top-ports 100 --output json
 ```
 <img width="783" height="298" alt="image" src="https://github.com/user-attachments/assets/2bceba5b-1b86-4e15-91bd-e8630301377d" />
 
-**Status:** 🚧 In Development (MVP)
+**Status:** Complete
 
 ---
 
@@ -73,8 +73,10 @@ ssl-checker --host example.com --output detailed
 # JSON output
 ssl-checker --host example.com --output json
 ```
+<img width="914" height="219" alt="image" src="https://github.com/user-attachments/assets/81e8d848-b0a4-4841-a76d-c8c1b9d50d23" />
+<img width="711" height="516" alt="image" src="https://github.com/user-attachments/assets/afdae72f-fdaf-4baa-b0aa-b585e4e0ccf5" />
 
-**Status:** 🚧 Complete (MVP)
+**Status:** Complete
 
 ---
 
