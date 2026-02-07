@@ -84,20 +84,29 @@ ssl-checker --host example.com --output json
 Comprehensive DNS reconnaissance and health checking.
 
 **Features:**
-- Subdomain enumeration
-- DNS record querying (A, AAAA, MX, TXT, etc.)
-- Zone transfer testing
-- DNS health checks
-- Wildcard detection
+- DNS record querying (A, AAAA, MX, TXT, NS, SOA, CNAME)
+- Multiple record type support
+- Subdomain enumeration with wordlists
+- Clean, structured output with Rich tables
+- Error handling for invalid domains
+- Timeout configuration
 
 **Usage:**
 ```bash
+# Query all common DNS records
 dns-enum --domain example.com
+
+# Query specific record type
 dns-enum --domain example.com --record-type MX
-dns-enum --domain example.com --bruteforce --wordlist common.txt
+
+# Enumerate subdomains
+dns-enum --domain example.com --wordlist subdomains.txt
+
+# Custom timeout
+dns-enum --domain example.com --timeout 5
 ```
 
-**Status:** 📋 Planned
+**Status:** ✅ Complete
 
 ---
 
@@ -105,40 +114,72 @@ dns-enum --domain example.com --bruteforce --wordlist common.txt
 Lookup IP address information, geolocation, and ASN data.
 
 **Features:**
-- Geolocation data (country, city, coordinates)
-- ASN and ISP information
-- IP range analysis
-- Bulk lookup support
-- Offline database option
+- Geolocation data (country, region, city, coordinates)
+- ASN and organization information
+- Timezone and currency data
+- ISP detection
+- Bulk lookup support from file
+- Multiple output formats (table, JSON, CSV)
+- Uses ipapi.co free API
 
 **Usage:**
 ```bash
+# Lookup single IP
 ip-geo --ip 8.8.8.8
-ip-geo --file ips.txt --output csv
+
+# Lookup multiple IPs from file
+ip-geo --file ips.txt
+
+# JSON output
+ip-geo --ip 1.1.1.1 --output json
+
+# CSV export
+ip-geo --file ips.txt --output csv > results.csv
 ```
 
-**Status:** 📋 Planned
+**Status:** ✅ Complete
 
 ---
 
-### 5. **Simple Firewall Manager** (`firewall-mgr`)
+### 5. **Firewall Manager** (`firewall-mgr`)
 User-friendly wrapper for iptables/ufw with rule templates.
 
 **Features:**
-- Simplified rule syntax
-- Common rule templates (web server, SSH hardening)
-- Backup and restore
-- Rule validation
-- Dry-run mode
+- Support for iptables and ufw backends
+- Add/delete firewall rules with flexible options
+- Enable/disable firewall
+- List all active rules
+- Reset firewall to defaults
+- Backup/restore rules (iptables fully supported)
+- Predefined templates (SSH, web, database)
+- Source/destination IP filtering
+- Port-based rules (TCP/UDP/ICMP)
+- Traffic direction control (in/out)
+- **Requires root/sudo privileges**
 
 **Usage:**
 ```bash
-firewall-mgr allow 80,443 --protocol tcp --comment "Web traffic"
-firewall-mgr block 192.168.1.100 --reason "Suspicious activity"
-firewall-mgr list --active
+# Check status
+sudo firewall-mgr status
+
+# Add rules
+sudo firewall-mgr add --action allow --port 22 --protocol tcp
+sudo firewall-mgr add --action allow --port 80 --comment "HTTP"
+
+# Apply template
+sudo firewall-mgr template web  # Allows HTTP/HTTPS
+
+# List rules
+sudo firewall-mgr list
+
+# Backup rules
+sudo firewall-mgr backup /backups/firewall.json
+
+# Reset firewall
+sudo firewall-mgr reset
 ```
 
-**Status:** 📋 Planned
+**Status:** ✅ Complete
 
 ---
 
@@ -236,15 +277,17 @@ Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for de
 
 ## 📊 Project Roadmap
 
-- [x] Project setup and structure
-- [x] Port Scanner MVP (Phase 1) ✅
-- [x] SSL Checker MVP (Phase 1) ✅
-- [ ] DNS Enumerator MVP (Phase 2)
-- [ ] IP Geolocation MVP (Phase 2)
-- [ ] Firewall Manager MVP (Phase 2)
+- [x] Project setup and structure ✅
+- [x] Port Scanner MVP ✅
+- [x] SSL Checker MVP ✅
+- [x] DNS Enumerator MVP ✅
+- [x] IP Geolocation MVP ✅
+- [x] Firewall Manager MVP ✅
 - [ ] Integration testing suite
 - [ ] Published pip package
 - [ ] Web dashboard (Phase 3)
+
+**🎉 All 5 core tools complete! (100%)**
 
 ---
 
